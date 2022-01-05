@@ -29,4 +29,13 @@ public class WeatherForecastController : ControllerBase
         })
         .ToArray();
     }
+
+    [HttpPost(Name ="ControlWeather")]
+    public WeatherForecast Set([FromQuery]int temperatureC){
+        return new WeatherForecast{
+            Date = DateTime.Now,
+            TemperatureC = temperatureC,
+            Summary = Summaries[3]
+        };
+    }
 }
